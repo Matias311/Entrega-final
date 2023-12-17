@@ -8,6 +8,10 @@ import {
   description,
   cardHumidity,
   cardWind,
+  cardAmanecer,
+  cardAtardecer,
+  horasCard,
+  btnEdit,
 } from "./variables.js";
 
 export function DOM(data) {
@@ -22,6 +26,8 @@ export function DOM(data) {
   description.innerHTML = data.weather[0].description;
   CardHumedad(data);
   CardWind(data);
+  AtardecerAmanecer(data);
+  btnEdit.src = "./img/edit.png";
 }
 
 function CardHumedad(data) {
@@ -80,4 +86,57 @@ function CardWind(data) {
     "px-5",
     "w-2/4"
   );
+}
+
+function AtardecerAmanecer(data) {
+  /* Tiempo en unix */
+  const sunrise = data.sys.sunrise;
+  const sunset = data.sys.sunset;
+  /* Amanecer */
+  /* Imagen */
+  const sunriseImg = document.createElement("img");
+  sunriseImg.src = "./img/sunrise.png";
+  /* Title */
+  const sunriseTitle = document.createElement("h3");
+  sunriseTitle.innerHTML = "Amanecer";
+  /* Tiempo */
+  const tiempoSunrise = document.createElement("p");
+  tiempoSunrise.innerHTML = tiempoConversion(sunrise);
+  /* AppendChild */
+  cardAmanecer.appendChild(sunriseImg);
+  cardAmanecer.appendChild(sunriseTitle);
+  cardAmanecer.appendChild(tiempoSunrise);
+  /* Sunset */
+  /* Imagen */
+  const sunSetImg = document.createElement("img");
+  sunSetImg.src = "./img/sunset.png";
+  /* Title */
+  const sunsetTitle = document.createElement("h3");
+  sunsetTitle.innerHTML = "Atardecer";
+  /* Tiempo */
+  const tiempoSunSet = document.createElement("p");
+  tiempoSunSet.innerHTML = tiempoConversion(sunset);
+  /* AppendChild */
+  cardAtardecer.appendChild(sunSetImg);
+  cardAtardecer.appendChild(sunsetTitle);
+  cardAtardecer.appendChild(tiempoSunSet);
+  /* Estilos */
+  horasCard.classList.add(
+    "flex",
+    "justify-around",
+    "items-center",
+    "border",
+    "rounded-md",
+    "border-black"
+  );
+  cardAtardecer.classList.add("flex", "flex-col", "items-center");
+  cardAmanecer.classList.add("flex", "flex-col", "items-center");
+}
+
+function tiempoConversion(unixTime) {
+  let date = new Date(unixTime * 1000);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let formattedTime = hours + ":" + minutes;
+  return formattedTime;
 }

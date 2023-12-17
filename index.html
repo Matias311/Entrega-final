@@ -10,8 +10,16 @@
     class="bg-zinc-200 w-screen h-screen flex flex-col justify-center items-center"
   >
     <main id="app">
-      <!-- Nombre de la ciudad -->
-      <h3 id="ciudad"></h3>
+      <section class="flex">
+        <!-- Nombre de la ciudad -->
+        <h3 id="ciudad"></h3>
+        <img src="#" alt="" id="btn-edit" class="cursor-pointer" />
+      </section>
+      <!-- Boton e input -->
+      <section class="hidden" id="contenedor-input">
+        <input type="text" placeholder="ciudad" id="input" />
+        <button id="btn-busqueda">Buscar</button>
+      </section>
       <!-- Seccion de la temperatura + logo -->
       <section class="flex justify-center items-center">
         <h1 id="temp" class="text-5xl text-center pr-2"></h1>
@@ -27,16 +35,14 @@
       </section>
       <!-- Carta de informacion -->
       <section>
-        <div class="flex w-full">
+        <div class="flex w-full justify-evenly gap-1">
           <div id="card-humidity"></div>
           <div id="card-wind"></div>
         </div>
       </section>
-      <section id="weather-container" class="flex flex-col items-center">
-        <div id="form">
-          <input type="text" placeholder="ciudad" id="input" />
-        </div>
-        <button id="btn-busqueda">Buscar</button>
+      <section id="cardHoras" class="mt-1">
+        <div id="amanecer"></div>
+        <div id="atardecer"></div>
       </section>
     </main>
     <script src="./index.js" type="module"></script>
