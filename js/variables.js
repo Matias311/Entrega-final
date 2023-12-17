@@ -1,0 +1,13 @@
+export const container = document.querySelector("#weather-container");
+export const input = document.querySelector("#input");
+export const btn = document.querySelector("#btn-busqueda");
+export const key = "f162883ffc65f950a63cb847901f3bd7";
+export const img = document.querySelector("#img");
+export const temp = document.querySelector("#temp");
+export const tempMax = document.querySelector("#temp_max");
+export const ciudad = document.querySelector("#ciudad");
+export const tempMin = document.querySelector("#temp_min");
+export const divider = document.querySelector("#divider");
+export const description = document.querySelector("#description");
+export const cardHumidity = document.querySelector("#card-humidity");
+export const cardWind = document.querySelector("#card-wind");

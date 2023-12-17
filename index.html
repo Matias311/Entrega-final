@@ -6,49 +6,39 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
   </head>
-  <body>
-    <main
-      id="app"
-      class="w-screen h-screen flex flex-col justify-center items-center"
-    >
+  <body
+    class="bg-zinc-200 w-screen h-screen flex flex-col justify-center items-center"
+  >
+    <main id="app">
+      <!-- Nombre de la ciudad -->
+      <h3 id="ciudad"></h3>
+      <!-- Seccion de la temperatura + logo -->
+      <section class="flex justify-center items-center">
+        <h1 id="temp" class="text-5xl text-center pr-2"></h1>
+        <div class="flex flex-col justify-center">
+          <div class="flex">
+            <p id="temp_max" class="text-xs"></p>
+            <p id="divider" class="text-xs"></p>
+            <p id="temp_min" class="text-xs"></p>
+          </div>
+          <p id="description" class="text-bs"></p>
+        </div>
+        <img src="#" id="img" class="w-20 h-20 opacity-0 ml-5" />
+      </section>
+      <!-- Carta de informacion -->
+      <section>
+        <div class="flex w-full">
+          <div id="card-humidity"></div>
+          <div id="card-wind"></div>
+        </div>
+      </section>
       <section id="weather-container" class="flex flex-col items-center">
-        <h1>Buscardor del clima</h1>
-        <h3 id="ciudad"></h3>
-        <img src="#" id="img" class="w-20 h-20 opacity-0" />
-        <h1 id="temp"></h1>
-        <p id="temp_max"></p>
-        <p id="temp_min"></p>
         <div id="form">
           <input type="text" placeholder="ciudad" id="input" />
-          <select id="select">
-            <option value="">Pais</option>
-            <option value="Argentina">Argentina</option>
-            <option value="Bolivia">Bolivia</option>
-            <option value="Brazil">Brazil</option>
-            <option value="Chile">Chile</option>
-            <option value="Colombia">Colombia</option>
-            <option value="Costa Rica">Costa Rica</option>
-            <option value="Cuba">Cuba</option>
-            <option value="Ecuador">Ecuador</option>
-            <option value="El Salvador">El Salvador</option>
-            <option value="Guatemala">Guatemala</option>
-            <option value="Honduras">Honduras</option>
-            <option value="Jamaica">Jamaica</option>
-            <option value="Mexico">Mexico</option>
-            <option value="Nicaragua">Nicaragua</option>
-            <option value="Paraguay">Paraguay</option>
-            <option value="Panama">Panama</option>
-            <option value="Peru">Peru</option>
-            <option value="Puerto Rico">Puerto Rico</option>
-            <option value="Republica Dominicana">Republica Dominicana</option>
-            <option value="Surinam">Surinam</option>
-            <option value="Uruguay">Uruguay</option>
-            <option value="Venezuela">Venezuela</option>
-          </select>
         </div>
         <button id="btn-busqueda">Buscar</button>
       </section>
     </main>
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
   </body>
 </html>
