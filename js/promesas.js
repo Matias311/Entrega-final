@@ -5,12 +5,26 @@ export async function promesa(city, key) {
   if (!city) {
     return;
   }
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=es&appid=${key}&units=metric`;
-  const response = await fetch(url);
-  const result = await response.json();
-  input.value = "";
-  console.log(result);
-  DOM(result);
+  try {
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=es&appid=${key}&units=metric`;
+    const response = await fetch(url);
+    const result = await response.json();
+    input.value = "";
+    console.log(result);
+    DOM(result);
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      html: `<span>Ciudad no encontrada, vuelva a intentar</span>`,
+      timer: 5000,
+      timerProgressBar: true,
+      allowEnterKey: true,
+      preConfirm: async () => {
+        location.reload();
+      },
+    });
+  }
 }
 
 export async function geolo(lat, lon, key) {

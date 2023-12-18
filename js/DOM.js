@@ -12,6 +12,7 @@ import {
   cardAtardecer,
   horasCard,
   btnEdit,
+  appContainer,
 } from "./variables.js";
 
 export function DOM(data) {
@@ -28,6 +29,7 @@ export function DOM(data) {
   CardWind(data);
   AtardecerAmanecer(data);
   btnEdit.src = "./img/edit.png";
+  appContainer.classList.add("border", "border-black", "rounded-xl", "p-5");
 }
 
 function CardHumedad(data) {

@@ -16,3 +16,4 @@ export const cardAtardecer = document.querySelector("#atardecer");
 export const horasCard = document.querySelector("#cardHoras");
 export const btnEdit = document.querySelector("#btn-edit");
 export const contenedorInputBTN = document.querySelector("#contenedor-input");
+export const appContainer = document.querySelector("#app");
