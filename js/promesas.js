@@ -3,7 +3,7 @@ import { input } from "./variables.js";
 
 export async function promesa(city, key) {
   try {
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=es&appid=${key}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=es&appid=${key}&units=metric`;
     const response = await fetch(url);
     const result = await response.json();
     input.value = "";
