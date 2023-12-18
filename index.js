@@ -29,8 +29,18 @@ btn.addEventListener("click", () => {
   contenedorInputBTN.classList.add("hidden");
 });
 
-navigator.geolocation.getCurrentPosition((position) => {
-  geolo(position.coords.latitude, position.coords.longitude, key);
+window.addEventListener("load", () => {
+  navigator.geolocation.getCurrentPosition(success, err);
 });
 
-console.log("hola");
+function success(position) {
+  geolo(position.coords.latitude, position.coords.longitude, key);
+}
+
+function err() {
+  const dataLocal = JSON.parse(localStorage.getItem("coord")) || {
+    lat: -33.45694,
+    lon: -70.64827,
+  };
+  geolo(dataLocal.lat, dataLocal.lon, key);
+}
