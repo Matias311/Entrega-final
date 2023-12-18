@@ -32,3 +32,5 @@ btn.addEventListener("click", () => {
 navigator.geolocation.getCurrentPosition((position) => {
   geolo(position.coords.latitude, position.coords.longitude, key);
 });
+
+console.log("hola");
