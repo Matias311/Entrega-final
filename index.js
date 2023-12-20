@@ -30,7 +30,12 @@ btn.addEventListener("click", () => {
 });
 
 window.addEventListener("load", () => {
-  navigator.geolocation.getCurrentPosition(success, err);
+  if (localStorage.getItem("coord")) {
+    const coord = JSON.parse(localStorage.getItem("coord"));
+    geolo(coord.lat, coord.lon, key);
+  } else {
+    navigator.geolocation.getCurrentPosition(success, err);
+  }
 });
 
 function success(position) {
