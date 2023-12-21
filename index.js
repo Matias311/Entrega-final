@@ -47,8 +47,9 @@ window.addEventListener("load", () => {
     appContainer.appendChild(script);
     body.classList.add(
       "bg-gradient-to-tl",
-      "from-[#80BFFF]",
-      "from-60%",
+      "via-[#80BFFF]",
+      "via-50%",
+      "from-[#94e7ff]",
       "to-[#fcd34d]"
     );
   } else {
