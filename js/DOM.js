@@ -29,7 +29,15 @@ export function DOM(data) {
   CardWind(data);
   AtardecerAmanecer(data);
   btnEdit.src = "./img/edit.png";
-  appContainer.classList.add("border", "border-black", "rounded-xl", "p-5");
+  appContainer.classList.add(
+    "border",
+    "border-black",
+    "rounded-xl",
+    "p-10",
+    "text-white",
+    "bg-black",
+    "opacity-75"
+  );
 }
 
 function CardHumedad(data) {
@@ -57,7 +65,9 @@ function CardHumedad(data) {
     "items-center",
     "py-2.5",
     "px-5",
-    "w-2/4"
+    "w-2/4",
+    "bg-opacity-75",
+    "bg-[#171717]"
   );
 }
 
@@ -86,7 +96,9 @@ function CardWind(data) {
     "items-center",
     "py-2.5",
     "px-5",
-    "w-2/4"
+    "w-2/4",
+    "bg-opacity-75",
+    "bg-[#171717]"
   );
 }
 
@@ -129,7 +141,9 @@ function AtardecerAmanecer(data) {
     "items-center",
     "border",
     "rounded-md",
-    "border-black"
+    "border-black",
+    "bg-opacity-75",
+    "bg-[#171717]"
   );
   cardAtardecer.classList.add("flex", "flex-col", "items-center");
   cardAmanecer.classList.add("flex", "flex-col", "items-center");

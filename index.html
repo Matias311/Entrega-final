@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <title>Tiempo App</title>
   </head>
   <body
-    class="bg-sky-400 w-screen h-screen flex flex-col justify-center items-center"
+    id="particles-js"
+    class="bg-[#232741] w-screen h-screen flex flex-col justify-center items-center relative"
   >
-    <main id="app">
+    <main id="app" class="z-50 absolute">
       <section class="flex">
         <!-- Nombre de la ciudad -->
         <h3 id="ciudad"></h3>
@@ -18,8 +20,13 @@
       </section>
       <!-- Boton e input -->
       <section class="hidden" id="contenedor-input">
-        <input type="text" placeholder="ciudad" id="input" />
-        <button id="btn-busqueda">Buscar</button>
+        <input
+          type="text"
+          placeholder="ingrese la ciudad"
+          id="input"
+          class="py-1 px-2 outline-0 rounded"
+        />
+        <button id="btn-busqueda" class="border p-1 rounded">Buscar</button>
       </section>
       <!-- Seccion de la temperatura + logo -->
       <section class="flex justify-center items-center">
@@ -47,5 +54,6 @@
       </section>
     </main>
     <script src="./index.js" type="module"></script>
+    <script src="./js/particles.js"></script>
   </body>
 </html>
