@@ -3,20 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              fuente: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <title>Tiempo App</title>
   </head>
   <body
     id="particles-js"
-    class="bg-[#232741] w-screen h-screen flex flex-col justify-center items-center relative"
+    class="bg-[#232741] w-screen h-screen flex flex-col justify-center items-center relative font-fuente"
   >
     <main id="app" class="z-50 absolute">
+      <!-- Nombre de la ciudad -->
       <section class="flex">
-        <!-- Nombre de la ciudad -->
         <h3 id="ciudad"></h3>
-        <img src="#" alt="" id="btn-edit" class="cursor-pointer w-4 h-4" />
+        <img
+          src="#"
+          alt=""
+          id="btn-edit"
+          class="cursor-pointer w-4 h-4 animate-pulse"
+        />
       </section>
       <!-- Boton e input -->
       <section class="hidden" id="contenedor-input">
@@ -33,21 +60,22 @@
         <h1 id="temp" class="text-5xl text-center pr-2"></h1>
         <div class="flex flex-col justify-center">
           <div class="flex">
-            <p id="temp_max" class="text-xs"></p>
-            <p id="divider" class="text-xs"></p>
-            <p id="temp_min" class="text-xs"></p>
+            <p id="temp_max" class="text-xs italic"></p>
+            <p id="divider" class="text-xs italic"></p>
+            <p id="temp_min" class="text-xs italic"></p>
           </div>
           <p id="description" class="text-bs"></p>
         </div>
         <img src="#" id="img" class="w-20 h-20 opacity-0 ml-5" />
       </section>
-      <!-- Carta de informacion -->
+      <!-- Carta de humedad y viento -->
       <section>
         <div class="flex w-full justify-evenly gap-1">
           <div id="card-humidity"></div>
           <div id="card-wind"></div>
         </div>
       </section>
+      <!-- Carta de amanecer y atardecer -->
       <section id="cardHoras" class="mt-1">
         <div id="amanecer"></div>
         <div id="atardecer"></div>
