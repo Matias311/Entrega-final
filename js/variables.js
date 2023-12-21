@@ -17,3 +17,7 @@ export const horasCard = document.querySelector("#cardHoras");
 export const btnEdit = document.querySelector("#btn-edit");
 export const contenedorInputBTN = document.querySelector("#contenedor-input");
 export const appContainer = document.querySelector("#app");
+const fecha = new Date();
+export const hora = fecha.getHours();
+export const body = document.querySelector("#particles-js");
+export const script = document.createElement("script");

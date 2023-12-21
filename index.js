@@ -9,6 +9,10 @@ import {
   cardAmanecer,
   cardWind,
   cardAtardecer,
+  hora,
+  script,
+  appContainer,
+  body,
 } from "./js/variables.js";
 import { promesa, geolo } from "./js/promesas.js";
 
@@ -37,6 +41,19 @@ window.addEventListener("load", () => {
     geolo(coord.lat, coord.lon, key);
   } else {
     navigator.geolocation.getCurrentPosition(success, err);
+  }
+  if (hora <= 19) {
+    script.src = "./js/DayParticles.js";
+    appContainer.appendChild(script);
+    body.classList.add(
+      "bg-gradient-to-tl",
+      "from-[#80BFFF]",
+      "from-60%",
+      "to-[#fcd34d]"
+    );
+  } else {
+    script.src = "./js/NightParticles.js";
+    appContainer.appendChild(script);
   }
 });
 /* si se obtiene informacion del navegador se pasa y se llama a geolo para mostrar info en la pagina */

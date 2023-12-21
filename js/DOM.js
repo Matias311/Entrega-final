@@ -74,7 +74,7 @@ function CardHumedad(data) {
     "vov",
     "fade-in",
     "fastest",
-    "t-2"
+    "t-1"
   );
 }
 
@@ -111,7 +111,7 @@ function CardWind(data) {
     "vov",
     "fade-in",
     "fastest",
-    "t-3"
+    "t-2"
   );
 }
 
@@ -164,7 +164,7 @@ function AtardecerAmanecer(data) {
     "vov",
     "fade-in",
     "fastest",
-    "t-4"
+    "t-3"
   );
   cardAtardecer.classList.add("flex", "flex-col", "items-center");
   cardAmanecer.classList.add("flex", "flex-col", "items-center");
