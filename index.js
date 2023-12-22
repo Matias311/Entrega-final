@@ -1,7 +1,7 @@
 /* Imports */
 import {
   input,
-  btn,
+  btnBusqueda,
   key,
   btnEdit,
   contenedorInputBTN,
@@ -14,7 +14,7 @@ import {
   appContainer,
   body,
 } from "./js/variables.js";
-import { promesa, geolo } from "./js/promesas.js";
+import { promesa, geolocalizacion } from "./js/promesas.js";
 
 /* Boton de busqueda */
 btnEdit.addEventListener("click", () => {
@@ -23,7 +23,7 @@ btnEdit.addEventListener("click", () => {
 /* Buscador */
 input.addEventListener("input", () => input.value);
 /* Limpia las cartas, retorna si no hay nada en el input y llama a la promesa */
-btn.addEventListener("click", () => {
+btnBusqueda.addEventListener("click", () => {
   if (!input.value) {
     return;
   }
@@ -39,7 +39,7 @@ btn.addEventListener("click", () => {
 window.addEventListener("load", () => {
   if (localStorage.getItem("coord")) {
     const coord = JSON.parse(localStorage.getItem("coord"));
-    geolo(coord.lat, coord.lon, key);
+    geolocalizacion(coord.lat, coord.lon, key);
   } else {
     navigator.geolocation.getCurrentPosition(success, err);
   }
@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
 });
 /* si se obtiene informacion del navegador se pasa y se llama a geolo para mostrar info en la pagina */
 function success({ coords: { latitude, longitude } } = position) {
-  geolo(latitude, longitude, key);
+  geolocalizacion(latitude, longitude, key);
 }
 /* Si existe un error obteniendo la informacion, revisa el local y si no hay nada en el local, agrega valores predeterminados y llama a la funcion de geolo para mostrar la infor en la pantalla */
 function err() {
@@ -69,5 +69,5 @@ function err() {
     lat: -33.45694,
     lon: -70.64827,
   };
-  geolo(dataLocal.lat, dataLocal.lon, key);
+  geolocalizacion(dataLocal.lat, dataLocal.lon, key);
 }

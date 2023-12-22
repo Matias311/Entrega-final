@@ -26,7 +26,7 @@ export async function promesa(city, key) {
 }
 
 /* Promesa con la cual se accede a la informacion con la latitud y longitud */
-export async function geolo(lat, lon, key) {
+export async function geolocalizacion(lat, lon, key) {
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=es&appid=${key}&units=metric`;
   const response = await fetch(url);
   const data = await response.json();

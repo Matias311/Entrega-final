@@ -1,6 +1,6 @@
 /* Import */
 import {
-  img,
+  LogoImg,
   temperatura,
   tempMax,
   tempMin,
@@ -23,9 +23,9 @@ export function DOM(data) {
     main: { temp_max, temp_min, temp },
     name,
   } = data;
-  const linkImg = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
-  img.src = linkImg;
-  img.classList.add("opacity-100");
+  const Linkicono = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
+  LogoImg.src = Linkicono;
+  LogoImg.classList.add("opacity-100");
   temperatura.innerHTML = Math.floor(temp) + "&#8451;";
   tempMax.innerHTML = Math.floor(temp_max) + "&#8451;";
   divider.innerText = "/";
@@ -50,10 +50,10 @@ export function DOM(data) {
 /* Esta funcion genera la carta de humedad */
 function CardHumedad({ main: { humidity } } = data) {
   /* icono de gota */
-  const img = document.createElement("img");
-  img.src = "./img/drop.png";
-  img.classList.add("w-8");
-  cardHumidity.appendChild(img);
+  const imgDrop = document.createElement("img");
+  imgDrop.src = "./img/drop.png";
+  imgDrop.classList.add("w-8");
+  cardHumidity.appendChild(imgDrop);
   /* Titulo */
   const title = document.createElement("h3");
   title.innerHTML = "Humedad";
@@ -87,10 +87,10 @@ function CardHumedad({ main: { humidity } } = data) {
 /* Esta funcion genera la carta de viento */
 function CardWind({ wind: { speed } } = data) {
   /* icono de gota */
-  const img = document.createElement("img");
-  img.src = "./img/wind.png";
-  img.classList.add("w-8");
-  cardWind.appendChild(img);
+  const imgWind = document.createElement("img");
+  imgWind.src = "./img/wind.png";
+  imgWind.classList.add("w-8");
+  cardWind.appendChild(imgWind);
   /* Titulo */
   const title = document.createElement("h3");
   title.innerHTML = "Viento";

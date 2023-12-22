@@ -1,8 +1,7 @@
-export const container = document.querySelector("#weather-container");
 export const input = document.querySelector("#input");
-export const btn = document.querySelector("#btn-busqueda");
+export const btnBusqueda = document.querySelector("#btn-busqueda");
 export const key = "f162883ffc65f950a63cb847901f3bd7";
-export const img = document.querySelector("#img");
+export const LogoImg = document.querySelector("#logoImg");
 export const temperatura = document.querySelector("#temp");
 export const tempMax = document.querySelector("#temp_max");
 export const ciudad = document.querySelector("#ciudad");
