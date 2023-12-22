@@ -1,6 +1,7 @@
+/* Import */
 import {
   img,
-  temp,
+  temperatura,
   tempMax,
   tempMin,
   ciudad,
@@ -15,17 +16,23 @@ import {
   appContainer,
 } from "./variables.js";
 
+/* Funcion principal la cual modifica el DOM, esta se encarga del icono e informacion de la temperatura */
 export function DOM(data) {
-  const linkImg = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  const {
+    weather,
+    main: { temp_max, temp_min, temp },
+    name,
+  } = data;
+  const linkImg = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
   img.src = linkImg;
   img.classList.add("opacity-100");
-  temp.innerHTML = Math.floor(data.main.temp) + "&#8451;";
-  tempMax.innerHTML = Math.floor(data.main.temp_max) + "&#8451;";
+  temperatura.innerHTML = Math.floor(temp) + "&#8451;";
+  tempMax.innerHTML = Math.floor(temp_max) + "&#8451;";
   divider.innerText = "/";
-  tempMin.innerHTML = Math.floor(data.main.temp_min) + "&#8451;";
-  ciudad.innerHTML = "Clima en " + data.name;
+  tempMin.innerHTML = Math.floor(temp_min) + "&#8451;";
+  ciudad.innerHTML = "Clima en " + name;
   ciudad.classList.add("vov", "fade-in", "fast");
-  description.innerHTML = data.weather[0].description;
+  description.innerHTML = weather[0].description;
   CardHumedad(data);
   CardWind(data);
   AtardecerAmanecer(data);
@@ -40,8 +47,8 @@ export function DOM(data) {
     "opacity-75"
   );
 }
-
-function CardHumedad(data) {
+/* Esta funcion genera la carta de humedad */
+function CardHumedad({ main: { humidity } } = data) {
   /* icono de gota */
   const img = document.createElement("img");
   img.src = "./img/drop.png";
@@ -54,7 +61,7 @@ function CardHumedad(data) {
   cardHumidity.appendChild(title);
   /* Porcentaje */
   const porcentaje = document.createElement("p");
-  porcentaje.innerHTML = data.main.humidity + "%";
+  porcentaje.innerHTML = humidity + "%";
   porcentaje.classList.add("text-sm");
   cardHumidity.appendChild(porcentaje);
   /* Card clases */
@@ -77,8 +84,8 @@ function CardHumedad(data) {
     "t-1"
   );
 }
-
-function CardWind(data) {
+/* Esta funcion genera la carta de viento */
+function CardWind({ wind: { speed } } = data) {
   /* icono de gota */
   const img = document.createElement("img");
   img.src = "./img/wind.png";
@@ -91,7 +98,7 @@ function CardWind(data) {
   cardWind.appendChild(title);
   /* Informacion viento kilometro hora */
   const velocidad = document.createElement("p");
-  velocidad.innerHTML = Math.floor(data.wind.speed * 3.6) + " " + "km/h";
+  velocidad.innerHTML = Math.floor(speed * 3.6) + " " + "km/h";
   velocidad.classList.add("text-sm");
   cardWind.appendChild(velocidad);
   /* Card clases */
@@ -114,11 +121,8 @@ function CardWind(data) {
     "t-2"
   );
 }
-
-function AtardecerAmanecer(data) {
-  /* Tiempo en unix */
-  const sunrise = data.sys.sunrise;
-  const sunset = data.sys.sunset;
+/* Esta funcion genera la hora del amanecer y atardecer */
+function AtardecerAmanecer({ sys: { sunrise, sunset } } = data) {
   /* Amanecer */
   /* Imagen */
   const sunriseImg = document.createElement("img");
@@ -169,7 +173,9 @@ function AtardecerAmanecer(data) {
   cardAtardecer.classList.add("flex", "flex-col", "items-center");
   cardAmanecer.classList.add("flex", "flex-col", "items-center");
 }
+/* Esta funcion pasa de unix a timestamp y asi podemos obtener la hora */
 function tiempoConversion(unixTime) {
+  /* Pasa el unix a milisegundos */
   let date = new Date(unixTime * 1000);
   let hours = date.getHours();
   let minutes = date.getMinutes();

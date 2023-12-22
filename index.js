@@ -27,6 +27,7 @@ btn.addEventListener("click", () => {
   if (!input.value) {
     return;
   }
+  /* !input.value && return; */
   promesa(input.value, key);
   cardHumidity.innerHTML = "";
   cardAmanecer.innerHTML = "";
@@ -42,6 +43,7 @@ window.addEventListener("load", () => {
   } else {
     navigator.geolocation.getCurrentPosition(success, err);
   }
+  /* Detecta la hora a la cual se ingresa y modifica el background */
   if (hora <= 19) {
     script.src = "./js/DayParticles.js";
     appContainer.appendChild(script);
